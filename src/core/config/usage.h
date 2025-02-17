@@ -53,6 +53,9 @@ static inline const std::string &usage()
     u += "  -k, --keepalive               send keepalived packet for prevent timeout (needs pool support)\n";
     u += "      --nicehash                enable nicehash.com support\n";
     u += "      --rig-id=ID               rig identifier for pool-side statistics (needs pool support)\n";
+    u += "      --url=URL         URL of the Unicity chain's node\n";
+    u += "      --user=USER       Username for the Unicity chain's node\n";
+    u += "      --pass=PASS       Password for the Unicity chain's node\n";
 
 #   ifdef XMRIG_FEATURE_TLS
     u += "      --tls                     enable SSL/TLS support (needs pool support)\n";

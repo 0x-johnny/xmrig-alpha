@@ -114,6 +114,11 @@ void xmrig::ConfigTransform::finalize(rapidjson::Document &doc)
         set(doc, Config::kOcl, kEnabled, true);
     }
 #   endif
+
+    // Add logic to finalize the specific chain's configuration
+    if (doc.HasMember("unicity")) {
+        // Handle Unicity-specific configuration
+    }
 }
 
 
@@ -267,6 +272,11 @@ void xmrig::ConfigTransform::transform(rapidjson::Document &doc, int key, const 
 
     default:
         break;
+    }
+
+    // Add logic to transform the specific chain's configuration
+    if (key == 'unicity') {
+        // Handle Unicity-specific configuration
     }
 }
 
