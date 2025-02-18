@@ -8,7 +8,7 @@
 
 namespace xmrig {
 
-class StrategyUnicity : public Strategy
+class StrategyUnicity : public IStrategy // Ensure it inherits from the correct base class
 {
 public:
     StrategyUnicity(Controller *controller, const char *url, const char *user, const char *pass);

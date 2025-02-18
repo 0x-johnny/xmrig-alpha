@@ -96,7 +96,6 @@ xmrig::Network::~Network()
     delete m_timer;
     delete m_donate;
     delete m_strategy;
-    delete m_state;
 }
 
 
