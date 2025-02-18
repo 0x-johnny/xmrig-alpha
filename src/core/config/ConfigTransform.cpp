@@ -280,7 +280,7 @@ void xmrig::ConfigTransform::transform(rapidjson::Document &doc, int key, const 
     }
 
     // Use a string literal instead of a character constant
-    if (std::string(key) == "unicity") {
+    if (key == IConfig::UnicityKey) { // Update this line to use the correct key
         // Handle Unicity-specific configuration
         LOG_INFO("Transforming Unicity-specific configuration");
     }
