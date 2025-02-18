@@ -2,7 +2,7 @@
 #include "base/io/log/Log.h"
 #include "base/net/Client.h"
 #include "base/net/Job.h"
-#include "base/net/strategies/Strategy.h"
+#include "net/strategies/Strategy.h"
 
 xmrig::StrategyUnicity::StrategyUnicity(Controller *controller, const char *url, const char *user, const char *pass) :
     Strategy(controller),

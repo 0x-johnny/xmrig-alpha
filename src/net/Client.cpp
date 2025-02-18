@@ -1,7 +1,7 @@
 #include "Client.h"
 #include "base/io/log/Log.h"
 #include "base/net/Job.h"
-#include "base/net/strategies/Strategy.h"
+#include "net/strategies/Strategy.h"
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 

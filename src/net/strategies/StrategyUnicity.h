@@ -1,7 +1,7 @@
 #ifndef XMRIG_STRATEGYUNICITY_H
 #define XMRIG_STRATEGYUNICITY_H
 
-#include "base/net/strategies/Strategy.h"
+#include "net/strategies/Strategy.h"
 #include "net/Client.h"
 #include <string>
 #include <vector>
