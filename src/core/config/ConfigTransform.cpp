@@ -274,8 +274,8 @@ void xmrig::ConfigTransform::transform(rapidjson::Document &doc, int key, const 
         break;
     }
 
-    // Add logic to transform the specific chain's configuration
-    if (key == 'unicity') {
+    // Use a string literal instead of a character constant
+    if (key == std::string("unicity")) {
         // Handle Unicity-specific configuration
     }
 }

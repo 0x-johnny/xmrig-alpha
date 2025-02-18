@@ -55,7 +55,7 @@
 #include <ctime>
 #include <iterator>
 #include <memory>
-#include "base/net/strategies/StrategyUnicity.h" // Add this line
+#include "net/strategies/StrategyUnicity.h" // Corrected file path
 
 
 xmrig::Network::Network(Controller *controller) :
@@ -81,8 +81,8 @@ xmrig::Network::Network(Controller *controller) :
 
     // Initialize Unicity chain connection settings
     const char *unicityUrl = "http://127.0.0.1:8589"; // Replace with actual URL and port
-    const char *unicityUser = "nodekasutaja"; // Replace with actual username
-    const char *unicityPass = "pwdpwdpwd"; // Replace with actual password
+    const char *unicityUser = "u"; // Replace with actual username
+    const char *unicityPass = "p"; // Replace with actual password
 
     // Add logic to connect to the Unicity chain
     m_strategy = new StrategyUnicity(controller, unicityUrl, unicityUser, unicityPass);
