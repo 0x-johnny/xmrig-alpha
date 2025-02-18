@@ -55,6 +55,7 @@
 #include <ctime>
 #include <iterator>
 #include <memory>
+#include "base/net/strategies/StrategyUnicity.h" // Add this line
 
 
 xmrig::Network::Network(Controller *controller) :
@@ -77,6 +78,14 @@ xmrig::Network::Network(Controller *controller) :
     }
 
     m_timer = new Timer(this, kTickInterval, kTickInterval);
+
+    // Initialize Unicity chain connection settings
+    const char *unicityUrl = "http://127.0.0.1:8589"; // Replace with actual URL and port
+    const char *unicityUser = "nodekasutaja"; // Replace with actual username
+    const char *unicityPass = "pwdpwdpwd"; // Replace with actual password
+
+    // Add logic to connect to the Unicity chain
+    m_strategy = new StrategyUnicity(controller, unicityUrl, unicityUser, unicityPass);
 }
 
 
@@ -252,6 +261,11 @@ void xmrig::Network::onVerifyAlgorithm(IStrategy *, const IClient *, const Algor
 #ifdef XMRIG_FEATURE_API
 void xmrig::Network::onRequest(IApiRequest &request)
 {
+    // Add logic to handle the specific chain's network requests
+    if (request.path() == "/unicity") {
+        // Handle Unicity-specific requests
+    }
+
     if (request.type() == IApiRequest::REQ_SUMMARY) {
         request.accept();
 
@@ -264,6 +278,11 @@ void xmrig::Network::onRequest(IApiRequest &request)
 
 void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
 {
+    // Add logic to handle the specific chain's job
+    if (job.isValid()) {
+        m_controller->setJob(job);
+    }
+
 #   ifdef XMRIG_FEATURE_BENCHMARK
     if (!BenchState::size())
 #   endif

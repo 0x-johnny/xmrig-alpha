@@ -13,7 +13,12 @@ xmrig::StrategyUnicity::StrategyUnicity(Controller *controller, const char *url,
     connect();
 }
 
-xmrig::StrategyUnicity::~StrategyUnicity() = default;
+xmrig::StrategyUnicity::~StrategyUnicity()
+{
+    for (auto &client : m_clients) {
+        delete client;
+    }
+}
 
 void xmrig::StrategyUnicity::tick(uint64_t now)
 {
