@@ -4,7 +4,7 @@
 #include "base/net/Job.h"
 
 xmrig::StrategyUnicity::StrategyUnicity(Controller *controller, const char *url, const char *user, const char *pass) :
-    Strategy(controller),
+    m_controller(controller),
     m_url(url),
     m_user(user),
     m_pass(pass)
@@ -21,7 +21,6 @@ xmrig::StrategyUnicity::~StrategyUnicity()
 
 void xmrig::StrategyUnicity::tick(uint64_t now)
 {
-    // Handle periodic tasks, such as checking the connection status or submitting results
     for (auto &client : m_clients) {
         client->tick(now);
     }
@@ -29,7 +28,6 @@ void xmrig::StrategyUnicity::tick(uint64_t now)
 
 void xmrig::StrategyUnicity::connect()
 {
-    // Connect to the Unicity chain
     Client *client = new Client(m_controller, m_url.c_str(), m_user.c_str(), m_pass.c_str());
     client->connect();
     m_clients.push_back(client);
@@ -37,7 +35,6 @@ void xmrig::StrategyUnicity::connect()
 
 void xmrig::StrategyUnicity::submitJob(const Job &job)
 {
-    // Submit a job to the Unicity chain
     for (auto &client : m_clients) {
         client->submit(job);
     }
@@ -45,10 +42,41 @@ void xmrig::StrategyUnicity::submitJob(const Job &job)
 
 void xmrig::StrategyUnicity::handleResult(const JobResult &result)
 {
-    // Handle the result from the Unicity chain
     if (result.isAccepted()) {
         Log::info("Job accepted by Unicity chain");
     } else {
         Log::error("Job rejected by Unicity chain");
     }
+}
+
+// Implement pure virtual functions from IStrategy
+bool xmrig::StrategyUnicity::isActive() const
+{
+    return true;
+}
+
+xmrig::IClient *xmrig::StrategyUnicity::client() const
+{
+    return m_clients.empty() ? nullptr : m_clients.front();
+}
+
+int64_t xmrig::StrategyUnicity::submit(const JobResult &result)
+{
+    return 0;
+}
+
+void xmrig::StrategyUnicity::resume()
+{
+}
+
+void xmrig::StrategyUnicity::setAlgo(const Algorithm &algo)
+{
+}
+
+void xmrig::StrategyUnicity::setProxy(const ProxyUrl &proxy)
+{
+}
+
+void xmrig::StrategyUnicity::stop()
+{
 }

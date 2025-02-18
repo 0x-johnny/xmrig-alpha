@@ -122,12 +122,12 @@ void xmrig::ConfigTransform::finalize(rapidjson::Document &doc)
     // Add logic to finalize the specific chain's configuration
     if (doc.HasMember("unicity")) {
         // Handle Unicity-specific configuration
-        Log::info("Finalizing Unicity-specific configuration");
+        LOG_INFO("Finalizing Unicity-specific configuration");
     }
 }
 
 
-void xmrig::ConfigTransform::transform(rapidjson::Document &doc, const char *key, const char *arg)
+void xmrig::ConfigTransform::transform(rapidjson::Document &doc, int key, const char *arg)
 {
     BaseTransform::transform(doc, key, arg);
 
@@ -282,7 +282,7 @@ void xmrig::ConfigTransform::transform(rapidjson::Document &doc, const char *key
     // Use a string literal instead of a character constant
     if (std::string(key) == "unicity") {
         // Handle Unicity-specific configuration
-        Log::info("Transforming Unicity-specific configuration");
+        LOG_INFO("Transforming Unicity-specific configuration");
     }
 }
 
