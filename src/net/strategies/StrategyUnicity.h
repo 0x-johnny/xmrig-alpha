@@ -1,7 +1,7 @@
 #ifndef XMRIG_STRATEGYUNICITY_H
 #define XMRIG_STRATEGYUNICITY_H
 
-#include "net/strategies/Strategy.h"
+#include "net/strategies/DonateStrategy.h" // Include the existing strategy header
 #include "net/Client.h"
 #include <string>
 #include <vector>
