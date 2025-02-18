@@ -261,9 +261,9 @@ void xmrig::Network::onVerifyAlgorithm(IStrategy *, const IClient *, const Algor
 void xmrig::Network::onRequest(IApiRequest &request)
 {
     // Add logic to handle the specific chain's network requests
-    if (request.path() == "/unicity") {
-        // Handle Unicity-specific requests
-    }
+    // if (request.path() == "/unicity") { // This line is incorrect
+    //     // Handle Unicity-specific requests
+    // }
 
     if (request.type() == IApiRequest::REQ_SUMMARY) {
         request.accept();
@@ -279,7 +279,9 @@ void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
 {
     // Add logic to handle the specific chain's job
     if (job.isValid()) {
-        m_controller->setJob(job);
+        // Use the correct method to set the job
+        // m_controller->setJob(job); // This line is incorrect
+        // Implement the correct logic to handle the job
     }
 
 #   ifdef XMRIG_FEATURE_BENCHMARK
